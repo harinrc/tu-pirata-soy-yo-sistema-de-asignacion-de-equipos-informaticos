@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Asignación de Equipos Informáticos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1><i class="fa-solid fa-laptop-code"></i> Gestión de Equipo Informático</h1>
+        <p>Sistema de control y asignaciones de activos de TI</p>
+    </header>
+
+    <div class="container">
+
+        <div class="form-section">
+            
+            
+            <div class="card">
+                <h2><i class="fa-solid fa-desktop"></i> Registrar Nuevo Equipo</h2>
+                <form id="form-equipo">
+                    <div class="form-group">
+                        <label for="codigo">Código / Nº Serie:</label>
+                        <input type="text" id="codigo" placeholder="Ej: LAP-001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Equipo:</label>
+                        <select id="tipo" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Desktop">Desktop (PC de Torre)</option>
+                            <option value="Monitor">Monitor</option>
+                            <option value="Teclado/Mouse">Teclado / Mouse</option>
+                            <option value="Impresora">Impresora</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marca">Marca y Modelo:</label>
+                        <input type="text" id="marca" placeholder="Ej: Dell ThinkPad X1" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Guardar Equipo</button>
+                </form>
+            </div>
+
+            
+            <div class="card">
+                <h2><i class="fa-solid fa-user-check"></i> Asignar Equipo</h2>
+                <form id="form-asignacion">
+                    <div class="form-group">
+                        <label for="select-equipo">Seleccionar Equipo Disponible:</label>
+                        <select id="select-equipo" required>
+                            <option value="">Cargando equipos disponibles...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empleado">Nombre del Empleado:</label>
+                        <input type="text" id="empleado" placeholder="Ej: Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="departamento">Departamento / Área:</label>
+                        <input type="text" id="departamento" placeholder="Ej: Desarrollo / Recursos Humanos" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success"><i class="fa-solid fa-handshake"></i> Asignar Equipo</button>
+                </form>
+            </div>
+
+        </div>
+
+        
+        <div class="display-section">
+            
+            <
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3 id="stat-totales">0</h3>
+                    <p>Total Equipos</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-disponibles">0</h3>
+                    <p>Disponibles</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-asignados">0</h3>
+                    <p>Asignados</p>
+                </div>
+            </div>
+
+           
+            <div class="card">
+                <h2><i class="fa-solid fa-boxes-stacked"></i> Inventario de Equipos</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Tipo</th>
+                                <th>Marca / Modelo</th>
+                                <th>Estado</th>
+                                <th>Asignado A</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-equipos">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
